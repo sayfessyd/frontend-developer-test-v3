@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <div class="button-row">
+    <a mat-raised-button routerLink="/" [class.activebutton]="url == '/'" color="accent">
+      Photos
+    </a>
+    <a mat-raised-button routerLink="/favourites" [class.activebutton]="url == '/favourites'" color="accent">
+      Favourites
+    </a>
+  </div>
+</mat-toolbar>

@@ -1,15 +1,27 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FavouritesComponent } from './pages/favourites/favourites.component';
+import { PhotosComponent } from './pages/photos/photos.component';
+import { SingleComponent } from './pages/single/single.component';
+import { SharedModule } from './shared/shared.module';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
       declarations: [
-        AppComponent
+        AppComponent,
+        PhotosComponent,
+        FavouritesComponent,
+        SingleComponent,
+      ],
+      imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        SharedModule
       ],
     }).compileComponents();
   });
@@ -26,10 +38,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('frontend-developer-test-v3');
   });
 
-  it('should render title', () => {
+  it(`expect loader to be hidden at first`, () => {
     const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    app.ngAfterViewInit();
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('frontend-developer-test-v3 app is running!');
+    expect(app.loader.nativeElement.style.display).toEqual('');
   });
 });

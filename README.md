@@ -1,5 +1,8 @@
 # FrontendDeveloperTestV3
 
+Photo library that includes an infinite random photostream, with the ability
+to save photos to your “Favorites” library.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
 ## Development server

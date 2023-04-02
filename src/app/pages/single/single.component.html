@@ -1,0 +1,10 @@
+<mat-grid-list cols="1" rowHeight="2:1">
+  <mat-grid-tile>
+    <img [src]="computePhotoURL()">
+  </mat-grid-tile>
+</mat-grid-list>
+<div class="button-bar">
+  <a mat-raised-button (click)="removeFromFavourites()" color="accent">
+    Remove from favourites
+  </a>
+</div>
